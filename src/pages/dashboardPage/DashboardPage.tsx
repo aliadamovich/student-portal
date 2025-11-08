@@ -1,4 +1,4 @@
-import { Dashboard } from 'features/dashboard'
+import { Dashboard } from 'features/dashboard/ui'
 
 export const DashboardPage = () => {
 	return <Dashboard />
