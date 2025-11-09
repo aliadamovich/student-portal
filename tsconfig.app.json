@@ -8,6 +8,9 @@
 		"types": ["vite/client"],
 		"skipLibCheck": true,
 		"baseUrl": "src",
+		"paths": {
+			"app/*": ["app/*"]
+		},
 
 		/* Bundler mode */
 		"moduleResolution": "bundler",

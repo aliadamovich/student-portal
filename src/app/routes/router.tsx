@@ -1,13 +1,12 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { LoginPage } from 'pages/loginPage'
 import App from '../App'
-import { DashboardPage } from 'pages/dashboardPage'
+import { CoursesPage } from 'pages/dashboardPage'
 import { ProtectedRoute } from './protectedRoute'
 import { ProtectedLayout } from 'widgets/protectedLayout'
 
 export const PATH = {
 	ROOT: '/',
-	DASHBOARD: '/dashboard',
 	LOGIN: '/login',
 	ERROR: '404',
 }
@@ -31,10 +30,8 @@ export const router = createBrowserRouter([
 						children: [
 							{
 								index: true,
-								element: <DashboardPage />,
+								element: <CoursesPage />,
 							},
-							// more protected routes:
-							// { path: "courses", element: <CoursesPage /> },
 						],
 					},
 				],
