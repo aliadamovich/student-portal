@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
 
 export const ProtectedRoute = () => {
-	// const isAuth = useSelector(selectIsAuthenticated)
+	const isAuth = useSelector(selectIsAuthenticated)
 
-	// if (!isAuth) {
-	// 	return <Navigate to={PATH.LOGIN} replace />
-	// }
+	if (!isAuth) {
+		return <Navigate to={PATH.LOGIN} replace />
+	}
 
 	return <Outlet />
 }

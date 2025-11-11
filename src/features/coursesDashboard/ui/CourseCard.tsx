@@ -19,14 +19,14 @@ export const CourseCard = ({ course }: Props) => {
 	const isButtonVisible = !isRegistered && canRegister
 
 	return (
-		<div className=" flex items-center justify-between border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow border-slate-500">
+		<div className=" flex items-center justify-between border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow border-slate-500 flex-wrap">
 			<div>
 				<h3 className="text-xl font-semibold capitalize">{course.name}</h3>
 
 				<div className="mb-3">
 					<p className="text-sm font-medium text-gray-700">Prerequisites:</p>
 					{course.prereqs.length > 0 ? (
-						<ul className="list-disc list-inside text-sm text-gray-600">
+						<ul className="list-disc list-inside text-sm text-gray-600 capitalize">
 							{course.prereqs.map((prereqId) => (
 								<li key={prereqId.id}>{prereqId.name}</li>
 							))}

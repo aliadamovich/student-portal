@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { authApi } from 'features/auth/api/authApi'
+import { authManager } from 'features/auth/lib/authManager'
 
 const initialState: AuthState = {
-	token: localStorage.getItem('auth_token'),
-	student: null,
-	isAuthenticated: !!localStorage.getItem('auth_token'),
+	token: authManager.getToken(),
+	student: authManager.getStudent(),
+	isAuthenticated: !!authManager.getToken(),
 }
 
 export const authSlice = createSlice({
@@ -15,7 +16,8 @@ export const authSlice = createSlice({
 			state.token = null
 			state.student = null
 			state.isAuthenticated = false
-			localStorage.removeItem('auth_token')
+
+			authManager.clearAuth()
 		},
 	},
 	extraReducers: (builder) => {
@@ -24,7 +26,7 @@ export const authSlice = createSlice({
 			state.student = payload.student
 			state.isAuthenticated = true
 
-			localStorage.setItem('auth_token', payload.token)
+			authManager.setAuth(payload.token, payload.student)
 		})
 	},
 	selectors: {
@@ -43,7 +45,7 @@ type AuthState = {
 	isAuthenticated: boolean
 }
 
-type Student = {
+export type Student = {
 	id: string
 	username: string
 }
