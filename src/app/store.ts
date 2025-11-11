@@ -1,6 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { baseApi } from './baseApi'
 import { authReducer } from 'features/auth/model/authSlice'
+import { useSelector, type TypedUseSelectorHook } from 'react-redux'
 
 const rootReducer = combineReducers({
 	auth: authReducer,
@@ -20,3 +21,4 @@ export const store = setupStore()
 export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof setupStore>
 export type AppDispatch = AppStore['dispatch']
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector

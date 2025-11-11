@@ -19,7 +19,7 @@ export const TextField = ({ disabled, label, errorMessage, ...restProps }: Props
 
 			<input
 				id={inputId}
-				// onChange={onChange}
+				disabled={disabled}
 				{...restProps}
 				className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 			/>

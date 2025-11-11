@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import { LoginPage } from 'pages/loginPage'
 import App from '../App'
-import { CoursesPage } from 'pages/dashboardPage'
+import { CoursesPage } from 'pages/coursesPage'
 import { ProtectedRoute } from './protectedRoute'
 import { ProtectedLayout } from 'widgets/protectedLayout'
 

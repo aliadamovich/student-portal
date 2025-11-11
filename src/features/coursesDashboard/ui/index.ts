@@ -1,1 +1,2 @@
-export * from './CoursesDashboard'
+export { CoursesList } from './CoursesList'
+export { CourseCard } from './CourseCard'

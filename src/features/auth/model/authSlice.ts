@@ -29,11 +29,12 @@ export const authSlice = createSlice({
 	},
 	selectors: {
 		selectIsAuthenticated: (state) => state.isAuthenticated,
+		selectStudent: (state) => state.student,
 	},
 })
 
 export const { logout } = authSlice.actions
-export const { selectIsAuthenticated } = authSlice.selectors
+export const { selectIsAuthenticated, selectStudent } = authSlice.selectors
 export const authReducer = authSlice.reducer
 
 type AuthState = {
