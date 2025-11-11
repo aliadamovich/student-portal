@@ -1,5 +1,6 @@
 import { PATH } from 'app/routes/router'
 import { useLoginMutation } from 'features/auth/api/authApi'
+import type { ApiError } from 'features/auth/api/authApi.types'
 import { useState } from 'react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -35,7 +36,7 @@ export const LoginForm = () => {
 			reset()
 			navigate(PATH.ROOT)
 		} catch (error) {
-			const message = error?.data?.message || error?.error || 'Something went wrong'
+			const message = (error as ApiError).data?.message || 'Something went wrong'
 			setError(message)
 		}
 	}

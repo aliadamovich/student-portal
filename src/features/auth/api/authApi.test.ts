@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { baseApi } from 'app/baseApi'
 import type { AppStore } from 'app/store'
 import { authApi } from 'features/auth/api/authApi'
+import type { ApiError } from 'features/auth/api/authApi.types'
 import { authReducer } from 'features/auth/model/authSlice'
 import { describe, it, expect, beforeEach } from 'vitest'
 
@@ -47,8 +48,8 @@ describe('authApi', () => {
 			})
 		)
 
-		expect(result.error).toBeDefined()
-		expect(result.error?.data?.message).toEqual('Invalid credentials')
-		expect(result.error?.status).toBe(401)
+		expect(result.error as ApiError).toBeDefined()
+		expect((result.error as ApiError).data?.message).toEqual('Invalid credentials')
+		expect((result.error as ApiError).status).toBe(401)
 	})
 })
