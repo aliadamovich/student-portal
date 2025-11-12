@@ -1,6 +1,8 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import { PATH } from 'app/routes/router'
 import { useLoginMutation } from 'features/auth/api/authApi'
 import type { ApiError } from 'features/auth/api/authApi.types'
+import { loginSchema, type LoginFormValues } from 'features/auth/lib/loginSchema'
 import { useState } from 'react'
 import { useForm, type SubmitHandler } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
@@ -8,10 +10,8 @@ import { Button } from 'shared/components/button'
 import { TextField } from 'shared/components/textField'
 import { Toast } from 'shared/components/toast/Toast'
 
-type FormValues = {
-	username: string
-	password: string
-}
+//i've implemented react-hook-form for error handling, rerender optimization and consistency
+//  and added zod validation for reliable form validation
 
 export const LoginForm = () => {
 	const navigate = useNavigate()
@@ -22,11 +22,14 @@ export const LoginForm = () => {
 		handleSubmit,
 		formState: { errors },
 		reset,
-	} = useForm<FormValues>()
+	} = useForm<LoginFormValues>({
+		resolver: zodResolver(loginSchema),
+		mode: 'onBlur',
+	})
 
 	const [login, { isLoading }] = useLoginMutation()
 
-	const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
+	const onSubmit: SubmitHandler<LoginFormValues> = async (data) => {
 		try {
 			await login({
 				username: data.username,
@@ -54,6 +57,7 @@ export const LoginForm = () => {
 					{...register('username', { required: 'Username is required' })}
 					placeholder="Enter your student ID"
 					errorMessage={errors.username?.message}
+					disabled={isLoading}
 				/>
 
 				<TextField
@@ -64,6 +68,7 @@ export const LoginForm = () => {
 					errorMessage={errors.password?.message}
 					aria-invalid={errors.password ? 'true' : 'false'}
 					aria-describedby={errors.password ? 'password-error' : undefined}
+					disabled={isLoading}
 				/>
 				<Button disabled={isLoading} type="submit">
 					{isLoading ? 'Signing in' : 'Sign in'}

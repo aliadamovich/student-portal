@@ -14,6 +14,8 @@ export const Toast = ({ message, onClose, duration = 3000 }: ToastProps) => {
 
 	return (
 		<div
+			role="alert"
+			aria-live="polite"
 			style={{
 				position: 'fixed',
 				bottom: '20px',

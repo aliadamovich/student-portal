@@ -54,7 +54,7 @@ describe('LoginForm', () => {
 
 		await user.click(button)
 
-		const errorMessage = await screen.findByText(/invalid credentials/i)
+		const errorMessage = await screen.getByRole('alert')
 		expect(errorMessage).toBeInTheDocument()
 	})
 

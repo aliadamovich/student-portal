@@ -10,10 +10,11 @@
 		"lint": "eslint .",
 		"preview": "vite preview",
 		"test": "vitest",
-		"predeploy": "vite build",
-		"deploy": "gh-pages -d build"
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
+		"@hookform/resolvers": "^5.2.2",
 		"@reduxjs/toolkit": "^2.10.1",
 		"@tailwindcss/vite": "^4.1.17",
 		"gh-pages": "^6.3.0",
@@ -22,7 +23,8 @@
 		"react-hook-form": "^7.66.0",
 		"react-redux": "^9.2.0",
 		"react-router-dom": "^7.9.5",
-		"tailwindcss": "^4.1.17"
+		"tailwindcss": "^4.1.17",
+		"zod": "^4.1.12"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.36.0",
