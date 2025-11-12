@@ -2,10 +2,8 @@ import type { RequestBody } from 'features/auth/api/authApi.types'
 import { http, HttpResponse } from 'msw'
 import { mockCoursesResponse, mockLoginResponse, mockRegistrations, mockTermResponse } from 'test/mocks/mockData'
 
-const API_URL = import.meta.env.VITE_API_BASE_URL
-
 export const handlers = [
-	http.post(`${API_URL}/login`, async ({ request }) => {
+	http.post(`api/login`, async ({ request }) => {
 		const body = (await request.json()) as RequestBody
 
 		//login
@@ -16,17 +14,17 @@ export const handlers = [
 	}),
 
 	//get current term
-	http.get(`${API_URL}/current_term`, () => {
+	http.get(`api/current_term`, () => {
 		return HttpResponse.json(mockTermResponse)
 	}),
 
 	//get term cources
-	http.get(`${API_URL}/terms/:termId/courses`, () => {
+	http.get(`api/terms/:termId/courses`, () => {
 		return HttpResponse.json(mockCoursesResponse)
 	}),
 
 	//get stuudents registraations
-	http.get(`${API_URL}/students/:studentId/registrations`, () => {
+	http.get(`api/students/:studentId/registrations`, () => {
 		return HttpResponse.json(mockRegistrations)
 	}),
 ]

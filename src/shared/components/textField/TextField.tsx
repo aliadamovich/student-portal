@@ -24,7 +24,7 @@ export const TextField = ({ disabled, label, errorMessage, ...restProps }: Props
 				className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 			/>
 			{errorMessage && (
-				<p role="alert" className="text-red-700 text-sm absolute -bottom-2.5 right-0">
+				<p role="alert" className="text-red-700 text-sm absolute -bottom-3 right-0">
 					{errorMessage}
 				</p>
 			)}

@@ -16,7 +16,7 @@ const baseQueryWithErrorHandling: BaseQueryFn<string | FetchArgs, unknown, Fetch
 	extraOptions
 ) => {
 	const baseQuery = fetchBaseQuery({
-		baseUrl: import.meta.env.VITE_API_BASE_URL,
+		baseUrl: '/api',
 		prepareHeaders: (headers, { endpoint }) => {
 			if (endpoint && publicEndpoints.includes(endpoint)) {
 				return headers
