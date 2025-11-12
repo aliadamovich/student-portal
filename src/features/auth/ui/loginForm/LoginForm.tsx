@@ -11,7 +11,7 @@ import { TextField } from 'shared/components/textField'
 import { Toast } from 'shared/components/toast/Toast'
 
 //i've implemented react-hook-form for error handling, rerender optimization and consistency
-//  and added zod validation for reliable form validation
+// and added zod validation for reliable form validation
 
 export const LoginForm = () => {
 	const navigate = useNavigate()

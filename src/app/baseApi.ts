@@ -8,7 +8,7 @@ import {
 import { authManager } from 'features/auth/lib/authManager'
 import { handleError } from 'shared/utils/handleErrors'
 
-const publicEndpoints = ['login'] // I would add 'register', 'forgotPassword' api requests
+const publicEndpoints = ['login']  // I would add 'register', 'forgotPassword' api requests
 
 const baseQueryWithErrorHandling: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> = async (
 	args,
