@@ -1,5 +1,4 @@
 import { useAppSelector } from 'app/store'
-import { authManager } from 'features/auth/lib/authManager'
 import { selectStudent } from 'features/auth/model/authSlice'
 import { useGetCurrentTermQuery } from 'features/courses/api/coursesApi'
 import type { Course } from 'features/courses/api/coursesApi.types'
@@ -37,13 +36,11 @@ export const useRegistration = (course: Course) => {
 		if (!student || !term || !canRegister) return
 
 		try {
-			const res = await registerForCourse({
+			await registerForCourse({
 				studentId: student.id,
 				courseId: course.id,
 				termId: term.id,
 			}).unwrap()
-
-      authManager.getToken(res.)
 		} catch (err) {
 			//as we handle all errors on the high level cathcing errors here can be redundant
 			console.error('Registration failed', err)
