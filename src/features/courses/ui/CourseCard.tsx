@@ -1,4 +1,4 @@
-import type { Course } from 'features/coursesDashboard/api/coursesApi.types'
+import type { Course } from 'features/courses/api/coursesApi.types'
 import { useRegistration } from 'features/registrations/model/useRegistration'
 import { Button } from 'shared/components/button'
 

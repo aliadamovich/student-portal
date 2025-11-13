@@ -39,6 +39,7 @@ export const LoginForm = () => {
 			reset()
 			navigate(PATH.ROOT)
 		} catch (error) {
+			//no need to handle error separtely if we will have error handling on a higher level
 			const message = (error as ApiError).data?.message || 'Something went wrong'
 			setError(message)
 		}

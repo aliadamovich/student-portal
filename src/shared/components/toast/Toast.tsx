@@ -16,16 +16,7 @@ export const Toast = ({ message, onClose, duration = 3000 }: ToastProps) => {
 		<div
 			role="alert"
 			aria-live="polite"
-			style={{
-				position: 'fixed',
-				bottom: '20px',
-				right: '20px',
-				background: '#f87171',
-				color: 'white',
-				padding: '10px 16px',
-				borderRadius: '8px',
-				boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
-			}}
+			className="fixed bottom-5 right-5 bg-red-400 text-white px-4 py-2 rounded-lg shadow-md"
 		>
 			{message}
 		</div>

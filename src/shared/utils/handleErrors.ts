@@ -29,8 +29,9 @@ export const handleError = (result: QueryReturnValue<unknown, FetchBaseQueryErro
 		}
 	}
 
-	// we could eather dispatch eror to RTK state (in App slice) or setting error straight to toastify library
+	// we could eather dispatch eror to RTK state (in App slice)
 	// api.dispatch(setAppError(error))
+	// or set error straight to toastify library
 	// toat.error(error)
 	console.log(error)
 }

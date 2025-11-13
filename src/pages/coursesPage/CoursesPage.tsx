@@ -1,4 +1,4 @@
-import { CoursesList } from 'features/coursesDashboard/ui'
+import { CoursesList } from 'features/courses/ui'
 
 export const CoursesPage = () => {
 	return <CoursesList />

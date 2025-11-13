@@ -1,5 +1,5 @@
 import { baseApi } from 'app/baseApi'
-import type { Course, Term } from 'features/coursesDashboard/api/coursesApi.types'
+import type { Course, Term } from 'features/courses/api/coursesApi.types'
 
 export const coursesApi = baseApi.injectEndpoints({
 	endpoints: (builder) => ({

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { canRegisterForCourse } from './canRegisterForCourse'
-import type { Course } from 'features/coursesDashboard/api/coursesApi.types'
+import type { Course } from 'features/courses/api/coursesApi.types'
 
 describe('canRegisterForCourse', () => {
 	const cs101: Course = {

@@ -1,6 +1,6 @@
 import { useAppSelector } from 'app/store'
 import { selectStudent } from 'features/auth/model/authSlice'
-import { useGetCurrentTermQuery } from 'features/coursesDashboard/api/coursesApi'
+import { useGetCurrentTermQuery } from 'features/courses/api/coursesApi'
 import { Button } from 'shared/components/button'
 import { Logo } from 'shared/components/logo'
 import { mockLoginResponse } from 'test/mocks/mockData'

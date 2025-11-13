@@ -1,8 +1,9 @@
 import { useAppSelector } from 'app/store'
+import { authManager } from 'features/auth/lib/authManager'
 import { selectStudent } from 'features/auth/model/authSlice'
-import { useGetCurrentTermQuery } from 'features/coursesDashboard/api/coursesApi'
-import type { Course } from 'features/coursesDashboard/api/coursesApi.types'
-import { canRegisterForCourse } from 'features/coursesDashboard/utils/canRegisterForCourse'
+import { useGetCurrentTermQuery } from 'features/courses/api/coursesApi'
+import type { Course } from 'features/courses/api/coursesApi.types'
+import { canRegisterForCourse } from 'features/courses/utils/canRegisterForCourse'
 import {
 	useGetStudentRegistrationsQuery,
 	useRegisterForCourseMutation,
@@ -14,10 +15,10 @@ export const useRegistration = (course: Course) => {
 	const student = useAppSelector(selectStudent)
 	const studentId = student?.id ?? ''
 
-	const { data: term } = useGetCurrentTermQuery()
+	const { data: term } = useGetCurrentTermQuery() //we get all terms
 	const { data, isLoading: isRegsLoading } = useGetStudentRegistrationsQuery(studentId, {
 		skip: !studentId,
-	})
+	}) //we get student's registrations
 	const registrations = data?.registrations || mockRegistrations.registrations
 
 	const [registerForCourse, { isLoading: isRegistering }] = useRegisterForCourseMutation()
@@ -31,20 +32,26 @@ export const useRegistration = (course: Course) => {
 		return registrations.some((reg) => reg.course.id === course.id)
 	}, [registrations, course.id])
 
+	//how i would see implementation of registration
 	const handleRegister = useCallback(async () => {
 		if (!student || !term || !canRegister) return
 
 		try {
-			await registerForCourse({
+			const res = await registerForCourse({
 				studentId: student.id,
 				courseId: course.id,
 				termId: term.id,
 			}).unwrap()
+
+      authManager.getToken(res.)
 		} catch (err) {
+			//as we handle all errors on the high level cathcing errors here can be redundant
 			console.error('Registration failed', err)
-			alert('Registration failed.')
 		}
 	}, [student, term, course, canRegister, registerForCourse])
+
+	//also cancelling the registration should be added here
+	//const cancelRegistration = () => {}
 
 	return {
 		isRegistered,

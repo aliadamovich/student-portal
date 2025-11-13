@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { baseApi } from 'app/baseApi'
 import type { AppStore } from 'app/store'
 import { authReducer } from 'features/auth/model/authSlice'
-import { coursesApi } from 'features/coursesDashboard/api/coursesApi'
+import { coursesApi } from 'features/courses/api/coursesApi'
 import { beforeEach, describe, expect, it } from 'vitest'
 
 describe('coursesApi', () => {

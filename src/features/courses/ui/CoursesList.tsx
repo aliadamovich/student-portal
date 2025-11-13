@@ -1,5 +1,5 @@
-import { useGetCurrentTermQuery, useGetTermCoursesQuery } from 'features/coursesDashboard/api/coursesApi'
-import { CourseCard } from 'features/coursesDashboard/ui/CourseCard'
+import { useGetCurrentTermQuery, useGetTermCoursesQuery } from 'features/courses/api/coursesApi'
+import { CourseCard } from 'features/courses/ui/CourseCard'
 import { mockCoursesResponse } from 'test/mocks/mockData'
 
 export const CoursesList = () => {

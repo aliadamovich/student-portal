@@ -1,4 +1,4 @@
-import type { Course } from 'features/coursesDashboard/api/coursesApi.types'
+import type { Course } from 'features/courses/api/coursesApi.types'
 import type { Registration } from 'features/registrations/api/registrationsApi.types'
 
 export const canRegisterForCourse = (course: Course, registrations?: Registration[]) => {
